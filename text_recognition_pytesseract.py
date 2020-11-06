@@ -18,24 +18,24 @@ def text_detector(img):
 # img = cv2.imread('images/img5.jpg')
 # img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
 
-image1 = cv2.imread('images2/img1.jpg')
+image1 = cv2.imread('real_images/img1.jpg')
 image1 = cv2.cvtColor(image1, cv2.COLOR_BGR2RGB)
-image2 = cv2.imread('images2/img2.jpg')
+image2 = cv2.imread('real_images/img2.jpg')
 image2 = cv2.cvtColor(image2, cv2.COLOR_BGR2RGB)
-image3 = cv2.imread('images2/img4.png')
+image3 = cv2.imread('real_images/img3.jpg')
 image3 = cv2.cvtColor(image3, cv2.COLOR_BGR2RGB)
-image4 = cv2.imread('images2/img5.png')
-image4 = cv2.cvtColor(image4, cv2.COLOR_BGR2RGB)
-image5 = cv2.imread('images2/img6.png')
-image5 = cv2.cvtColor(image5, cv2.COLOR_BGR2RGB)
-array = [image1,image2,image3,image4,image5]
+# image4 = cv2.imread('images2/img5.png')
+# image4 = cv2.cvtColor(image4, cv2.COLOR_BGR2RGB)
+# image5 = cv2.imread('images2/img6.png')
+# image5 = cv2.cvtColor(image5, cv2.COLOR_BGR2RGB)
+array = [image1,image2,image3]#,image4,image5]
 
 for i in range(0,2):
 	for img in array:
-		imageO = cv2.resize(img, (940,520), interpolation = cv2.INTER_AREA)
-		orig = cv2.resize(img, (640,320), interpolation = cv2.INTER_AREA)
+		imageO = img
+		# orig = img
 		textDetected = text_detector(imageO)
-		cv2.imshow("Orig Image",orig)
+		# cv2.imshow("Orig Image",orig)
 		cv2.imshow("Text Detection", textDetected)
 		time.sleep(2)
 		k = cv2.waitKey(30)

@@ -93,18 +93,18 @@ def text_detector(image):
 		orig = cv2.putText(orig, textRecongized, (startX,startY), cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 2, cv2.LINE_AA) 
 	return orig
 
-image1 = cv2.imread('images2/img1.jpg')
-image2 = cv2.imread('images2/img2.jpg')
-# image3 = cv2.imread('images2/img3.jpg')
-image4 = cv2.imread('images2/img4.png')
-image5 = cv2.imread('images2/img5.png')
-image6 = cv2.imread('images2/img6.png')
-array = [image1,image2,image4,image5, image6]
+image1 = cv2.imread('real_images/img1.jpg')
+image2 = cv2.imread('real_images/img2.jpg')
+image3 = cv2.imread('real_images/img3.jpg')
+# image4 = cv2.imread('images2/img4.png')
+# image5 = cv2.imread('images2/img5.png')
+# image6 = cv2.imread('images2/img6.png')
+array = [image1,image2,image3,]#image4,image5, image6]
 
 for i in range(0,2):
 	for img in array:
-		imageO = cv2.resize(img, (640, 320), interpolation = cv2.INTER_AREA)
-		orig = cv2.resize(img, (640,320), interpolation = cv2.INTER_AREA)
+		imageO = cv2.resize(img, (320, 640), interpolation = cv2.INTER_AREA)
+		orig = cv2.resize(img, (320,640), interpolation = cv2.INTER_AREA)
 		textDetected = text_detector(imageO)
 		cv2.imshow("Orig Image",orig)
 		cv2.imshow("Text Detection", textDetected)
